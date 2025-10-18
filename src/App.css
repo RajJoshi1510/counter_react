@@ -1,0 +1,178 @@
+/* App.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, 
+    #667eea 0%, 
+    #764ba2 20%, 
+    #f093fb 40%, 
+    #f5576c 60%, 
+    #4facfe 80%, 
+    #00f2fe 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 20px 2px rgba(255, 255, 255, 0.8),
+    0 0 40px 4px rgba(255, 255, 255, 0.6);
+  filter: blur(0.5px);
+}
+
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.shape-1 {
+  width: 120px;
+  height: 120px;
+  top: 10%;
+  right: 10%;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+}
+
+.shape-2 {
+  width: 80px;
+  height: 80px;
+  bottom: 20%;
+  left: 10%;
+  background: linear-gradient(45deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+}
+
+.shape-3 {
+  width: 60px;
+  height: 60px;
+  top: 60%;
+  right: 20%;
+  background: linear-gradient(45deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+}
+
+.app-container {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  position: relative;
+  z-index: 2;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.app-header h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, #fff, #f0f0f0, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.app-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  font-weight: 300;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-footer {
+  text-align: center;
+  margin-top: 2rem;
+  color: white;
+  opacity: 0.8;
+  font-size: 0.9rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .app-header p {
+    font-size: 1rem;
+  }
+  
+  .app {
+    padding: 15px;
+  }
+
+  .shape-1, .shape-2, .shape-3 {
+    transform: scale(0.7);
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header h1 {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+  
+  .app-container {
+    min-height: 85vh;
+  }
+
+  .shape-1, .shape-2, .shape-3 {
+    transform: scale(0.5);
+  }
+}
